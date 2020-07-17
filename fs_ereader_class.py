@@ -25,30 +25,40 @@ class Ereader():
         self.library_count += purchased_ebooks
 
 
+class Screen():
+
+    def __init__(self, screen_resolution = '1280* 800'):
+        self.screen_resolution = screen_resolution
+    def describe_screen(self):
+        print("\nFire HD 8 features a widescreen " + self.screen_resolution + " HD screen.")
+
+
 my_new_erader = Ereader('Amazon Kindle', 'paperwhite', 'adjustable', 'several months of battery life', '361dpi')
 print(my_new_erader.get_ereader_name())
 ### my_new_erader.read_library_count()
 """Modifying value directly"""
 ###my_new_erader.library_count = 36
-my_new_erader.update_library_count(48)
+"""my_new_erader.update_library_count(48)
 my_new_erader.read_library_count()
 my_new_erader.increment_library_count(5)
-my_new_erader.read_library_count()
+my_new_erader.read_library_count()"""
 
 """Creating a child class..."""
 class KindleFire(Ereader):
 
-    def __init__(self, make, model, backlight, battery, screen_type, screen_resulotion = '1280 * 720'):
-        self.screen_resulotion = screen_resulotion
+    def __init__(self, make, model, backlight, battery, screen_type):
+        
         super().__init__(make, model, backlight, battery, screen_type)
+        self.firescreen = Screen()
 
-
-    def describe_screen(self):
-        print("\nFire HD 8 features a widescreen " + self.screen_resulotion + " HD screen.")
+    
 
 
 
 my_kindle_fire = KindleFire('amazon', 'kindle fire', 'backlight', '12 hrs battery life', 'color screen')
 print(my_kindle_fire.get_ereader_name())
 
-my_kindle_fire.describe_screen()
+"""my_kindle_fire.describe_screen()""" 
+my_kindle_fire.firescreen.describe_screen()
+"""my_k = Screen()
+my_k.describe_screen()"""
